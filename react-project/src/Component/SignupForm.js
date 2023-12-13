@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
 import "./signup.css";
 
 export default class SignupForm extends Component {
 
-    handleNavigate = () => {
-        const { onNavigate } = this.props;
-        if (onNavigate) {
-          onNavigate();
-        }
-      };
-
+    // handleNavigate = () => {
+    //     const { onNavigate } = this.props;
+    //     if (onNavigate) {
+    //       onNavigate();
+    //     }
+    //   };
+      
   render() {
     return (
       <div className="form">
@@ -22,11 +23,7 @@ export default class SignupForm extends Component {
         <label For="lastName"><b>Last Name</b></label>
         <input class="input-box" type="text" placeholder=" Enter Last name" name="lastName" required />
         <br />
-        
-        <label For="phoneNumber"><b>Phone Number</b></label>
-        <input  class="input-box" type="tel" placeholder=" Enter Phone Number" name="phoneNumber" required />
-        <br />
-        
+  
         <label For="email"><b>Email</b></label>
         <input class="input-box" type="email" placeholder=" Enter Email" name="email" required />
         <br />
@@ -36,7 +33,7 @@ export default class SignupForm extends Component {
         <br />
         
         <label For="confirmPassword"><b>Confirm Password</b></label>
-        <input class="input-box" type="password" placeholder=" Repeat Password" name="confirmPassword" required />
+        <input class="input-box" type="password" placeholder=" Confirm Password" name="confirmPassword" required />
         <br />
         
         <button type="submit" className="signupbtn">Sign Up</button>
@@ -45,9 +42,9 @@ export default class SignupForm extends Component {
           <input type="checkbox" checked={true} name="remember" style={{ marginBottom: '15px' }} /> Remember me
         </label>
 
-        <p>
+        <p className='link1'>
         <h3>Already have an account?{' '}
-        <button onClick={this.handleNavigate}>Login</button></h3>
+        <Link to="/">Login</Link></h3>
       </p>
       </form>
     </div>

@@ -1,21 +1,18 @@
 import './App.css';
-import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loginpage from './Component/Loginpage';
 import SignupForm from './Component/SignupForm';
 
-function App() {
-  const [currentPage, setCurrentPage] = useState('SignupForm');
 
-  const handleNavigate = (page) => {
-    setCurrentPage(page);
-  };
-
+export default function AppI() {
   return (
     <div>
-      {currentPage === 'SignupForm' && <SignupForm onNavigate={() => handleNavigate('Loginpage')} />}
-      {currentPage === 'Loginpage' && <Loginpage onNavigate={() => handleNavigate('SignupForm')} />}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Loginpage />} />
+          <Route path="/Signup" element={<SignupForm />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
-
-export default App;
