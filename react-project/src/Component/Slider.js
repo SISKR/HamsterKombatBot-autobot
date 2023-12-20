@@ -1,45 +1,68 @@
-import Carousel from 'react-bootstrap/Carousel';
+import React, { useState, useEffect } from "react";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { sliderData } from "./assets/slider-data";
+import "./css/Slider.scss";
 
-function Slider() {
+const Slider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideLength = sliderData.length;
+
+  const autoScroll = true;
+  let slideInterval;
+  let intervalTime = 5000;
+
+  const nextSlide = () => {
+    setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
+    console.log("next");
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
+    console.log("prev");
+  };
+
+  function auto() {
+    slideInterval = setInterval(nextSlide, intervalTime);
+  }
+
+  useEffect(() => {
+    setCurrentSlide(0);
+  }, []);
+
+  useEffect(() => {
+    if (autoScroll) {
+      auto();
+    }
+
+    return () => {
+      clearInterval(slideInterval);
+    };
+  }, [autoScroll, currentSlide]);
+
   return (
-    <Carousel data-bs-theme="dark">
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="img1.jpg"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/o9qfaNwjnqNBJ1uOLeC53r5eTzB.jpg"
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/o9qfaNwjnqNBJ1uOLeC53r5eTzB.jpg"
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h5>Third slide label</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <div className="slider">
+      <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide} />
+      <AiOutlineArrowRight className="arrow next" onClick={nextSlide} />
+      {sliderData.map((slide, index) => (
+        <div
+          className={index === currentSlide ? "slide current" : "slide"}
+          key={index}
+        >
+          {index === currentSlide && (
+            <div>
+              <img src={slide.image} alt="slide" className="image" />
+              <div className="content">
+                <h2>{slide.heading}</h2>
+                <p>{slide.desc}</p>
+                <hr />
+                <button className="button1">Get Started</button>
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
   );
-}
+};
 
 export default Slider;
