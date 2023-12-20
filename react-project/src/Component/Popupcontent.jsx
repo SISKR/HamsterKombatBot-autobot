@@ -1,28 +1,4 @@
-// import React from 'react';
-
-// const containerStyle = {
-//   width: '1980px',
-//   height: '1080px',
-//   backgroundColor: '#ffffff', // white background
-//   display: 'flex',
-//   justifyContent: 'center',
-//   alignItems: 'center',
-// };
-
-// const textStyle = {
-//   fontSize: '24px',
-//   color: '#000000', // black text color
-// };
-
-// export default function PopupContent() {
-//   return (
-//     <div style={containerStyle}>
-//       <span style={textStyle}>Hi Hello</span>
-//     </div>
-//   );
-// }
-
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
@@ -31,7 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
-import LoginPage from './Loginpage';
+import SignupForm from './SignupForm';
+import Loginpage from './Loginpage';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -43,13 +20,20 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export default function CustomizedDialogs() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [showLoginPage, setShowLoginPage] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
+
   const handleClose = () => {
     setOpen(false);
+    setShowLoginPage(false);
+  };
+
+  const handleLoginButtonClick = () => {
+    setShowLoginPage(true);
   };
 
   return (
@@ -63,7 +47,7 @@ export default function CustomizedDialogs() {
         open={open}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          Modal title
+          <center>Registration</center>
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -79,7 +63,19 @@ export default function CustomizedDialogs() {
         </IconButton>
         <DialogContent dividers>
           <Typography gutterBottom>
-    <LoginPage />
+            {!showLoginPage && <SignupForm />}
+            {showLoginPage && <Loginpage />}
+            {!showLoginPage && (
+              <center>
+              <Button
+              variant='contained'
+              color='success'
+              onClick={handleLoginButtonClick}
+              >
+              Login
+              </Button>
+              </center>
+            )}
           </Typography>
         </DialogContent>
       </BootstrapDialog>

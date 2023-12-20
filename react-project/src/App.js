@@ -4,21 +4,14 @@
 // import SignupForm from './Component/SignupForm';
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Slider from './Component/Slider'
-import Navbar from './Component/Navbar'
-import Content from './Component/Content'
-import './Component/css/Slider.scss'
-import './Component/css/page.css'
+import Homepage from './Component/Homepage';
 
 
 // import './Component/Slider.css'
 export default function App() {
   return (
     <div>
-    <Navbar />
-    <Slider/>
-    <Content />
-
+    <Homepage />
     </div>
   )
 }
