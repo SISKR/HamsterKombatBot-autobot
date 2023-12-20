@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import "./signup.css";
+import "./css/signup.css";
 
 export default class LoginPage extends Component {
     render() {
@@ -12,34 +12,27 @@ export default class LoginPage extends Component {
             <div className="hello">
                 <div className="sec-text"></div>
                 <form className="form">
-                    <h1>Login</h1>
-                    <br></br>
-                    <label htmlFor="userName"><b> <FaUser />  Username/Email</b></label>
+                    <h1 className='log'>LOGIN</h1>
+                    <label htmlFor="userName"><b> <p className='ik' ><FaUser /></p><p className='sp'>USERNAME/EMAIL</p></b></label>
                     <input className="input-box" type="text" placeholder=" Enter Username/email" name="userName" required />
-                    <br />
-
-                    <label className="pass1" htmlFor="password"><b> <RiLockPasswordFill /> Password</b></label>
+                    <label className="pass1" htmlFor="password"><b> <p class='ik'><RiLockPasswordFill /></p><p className='sp1'> PASSWORD</p></b></label>
                     <input className="input-box" type="password" placeholder=" Enter Password" name="password" required />
-                    <br />
-
-                    <button className="Loginubtn" type="submit">Login</button>&nbsp;<br></br>
+                    <Button variant="contained" className="Loginubtn" type="submit">Login</Button>&nbsp;<br></br>
                     <label>
-                        <input type="checkbox" checked={true} name="remember" style={{ marginBottom: '15px' }} /> Remember me
+                        <input type="checkbox"  name="remember" style={{ marginBottom: '15px' }} />Remember me 
                     </label>
-
                     <label>
                         <a className="forgot" href="forgot">ForgotPassword</a>
-                    </label><br></br>
-                    <Link to="/Signup" className="signup-link">Create an account</Link>
-                    <br></br>
-                    <br></br>
-
+                    </label>
                     <div CLASS="SOCIALMEDIA">
                         <FontAwesomeIcon icon={faGoogle} size="2x" style={{ margin: '10px', cursor: 'pointer' }} />
                         <FontAwesomeIcon icon={faFacebook} size="2x" style={{ margin: '10px', cursor: 'pointer' }} />
                     </div>
-                </form>
-            </div>
-        );
-    }
-}
+                    <div className='Signup1'>
+                    <Button variant="outline" color="">signup</Button>
+                    </div>
+                    </form>
+                    </div>
+                    );
+                }
+            }
