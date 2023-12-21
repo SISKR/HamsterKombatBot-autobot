@@ -20,7 +20,7 @@ export default class LoginPage extends Component {
                     <input className="input-box" type="password" placeholder=" Enter Password" name="password"   required />
                     <Button variant="contained" className="Loginubtn" fullWidth startIcon={<LoginIcon />}type="submit">Login</Button>&nbsp;<br></br>
                     <label>
-                        <input type="checkbox"  name="remember" style={{ marginBottom: '15px' }} />Remember me 
+                        <input type="checkbox"  name="remember" style={{ marginBottom: '15px' }} /> Remember me 
                     </label>
                     <label>
                         <a className="forgot" href="forgot">ForgotPassword</a>

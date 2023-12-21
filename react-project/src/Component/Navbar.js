@@ -6,7 +6,7 @@ import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import Home from '@mui/icons-material/Home';
 import Person from '@mui/icons-material/Person';
-import Popupcontent from './Popupcontent'
+import Popupcontent from './Popupcontent';
 
 import Popover from '@mui/material/Popover';
 
@@ -48,8 +48,19 @@ export default function HorizontalList() {
         zIndex: 1000,
       }}
     >
-      <List role="menubar" orientation="horizontal" style={{ background: isScrolled ? '#000' : 'transparent', height: '70px' }}>
+      <List
+        role="menubar"
+        orientation="horizontal"
+        style={{
+          background: isScrolled ? '#000' : 'transparent',
+          height: '70px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         <ListItem role="none">
+          <div style={{ marginRight: '10px', background: 'linear-gradient(to right, #330867 0%, #30cfd0 100%)', fontWeight: 'bold', fontSize: '16px', padding: '5px 10px', borderRadius: '5px', color: 'white' }}>RenDes</div>
           <ListItemButton
             role="menuitem"
             component="a"
@@ -76,24 +87,51 @@ export default function HorizontalList() {
             onClick={handleClick}
             style={{ color: 'white' }}
           >
-            Blog
+            Testimonials
           </ListItemButton>
           <Popover
-          open={Boolean(anchorEl)}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-        >
-          <Popupcontent /> {/* Render the component like this */}
-        </Popover>
+            open={Boolean(anchorEl)}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+          >
+            <Popupcontent /> {/* Render the component like this */}
+          </Popover>
         </ListItem>
+        
+        {/* New Items related to renovation, design, interior, and house */}
+        <ListItem role="none">
+          <ListItemButton role="menuitem" component="a" href="#renovation" style={{ color: 'white' }}>
+            Gallery
+          </ListItemButton>
+        </ListItem>
+        <ListDivider />
+        <ListItem role="none">
+          <ListItemButton role="menuitem" component="a" href="#design" style={{ color: 'white' }}>
+            Designs
+          </ListItemButton>
+        </ListItem>
+        <ListDivider />
+        <ListItem role="none">
+          <ListItemButton role="menuitem" component="a" href="#interior" style={{ color: 'white' }}>
+            Interiors Designs
+          </ListItemButton>
+        </ListItem>
+        <ListDivider />
+        <ListItem role="none">
+          <ListItemButton role="menuitem" component="a" href="#house" style={{ color: 'white' }}>
+            About
+          </ListItemButton>
+        </ListItem>
+
+        {/* Profile Item */}
         <ListItem role="none" sx={{ marginInlineStart: 'auto' }}>
           <ListItemButton
             role="menuitem"

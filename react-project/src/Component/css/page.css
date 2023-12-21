@@ -1,12 +1,14 @@
 nav
 {
-   
+    
     background-color: transparent;
 
 }
 
 body{
-background-color: #5c7c89;
+background-image: url('backgroundimg.png');
+background-size: cover;
+background-repeat: no-repeat;
 }
 
 .hi
