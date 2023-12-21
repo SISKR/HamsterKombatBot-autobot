@@ -36,10 +36,14 @@ export default function CustomizedDialogs() {
     setShowLoginPage(true);
   };
 
+  const handleSwitchToSignup = () => {
+    setShowLoginPage(false);
+  };
+
   return (
     <React.Fragment>
       <Button variant="contained" onClick={handleClickOpen}>
-        Login/signup
+        Login/Signup
       </Button>
       <BootstrapDialog
         onClose={handleClose}
@@ -47,7 +51,7 @@ export default function CustomizedDialogs() {
         open={open}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          <center>Registration</center>
+          <center>{showLoginPage ? 'Login' : 'Registration'}</center>
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -63,18 +67,32 @@ export default function CustomizedDialogs() {
         </IconButton>
         <DialogContent dividers>
           <Typography gutterBottom>
-            {!showLoginPage && <SignupForm />}
-            {showLoginPage && <Loginpage />}
-            {!showLoginPage && (
-              <center>
-              <Button
-              variant='contained'
-              color='success'
-              onClick={handleLoginButtonClick}
-              >
-              Login
-              </Button>
-              </center>
+            {showLoginPage ? (
+              <>
+                <Loginpage />
+                <center>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={handleSwitchToSignup}
+                  >
+                    Switch to Signup
+                  </Button>
+                </center>
+              </>
+            ) : (
+              <>
+                <SignupForm />
+                <center>
+                  <Button
+                    variant="contained"
+                    color="success"
+                    onClick={handleLoginButtonClick}
+                  >
+                    Login
+                  </Button>
+                </center>
+              </>
             )}
           </Typography>
         </DialogContent>

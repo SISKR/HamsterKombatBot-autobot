@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Button from '@mui/material/Button'
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { sliderData } from "./assets/slider-data";
 import "./css/Slider.scss";
@@ -55,7 +56,7 @@ const Slider = () => {
                 <h2>{slide.heading}</h2>
                 <p>{slide.desc}</p>
                 <hr />
-                <button className="button1">Get Started</button>
+                <Button variant="contained" className="button1">Get Started</Button>
               </div>
             </div>
           )}

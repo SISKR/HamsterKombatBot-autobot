@@ -1,0 +1,16 @@
+.testimonial-container {
+    padding: 5rem 0;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+  }
+  
+  .testimonial-card {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .testimonial-image {
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

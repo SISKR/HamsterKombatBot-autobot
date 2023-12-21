@@ -76,9 +76,9 @@ export default function App() {
       </MDBContainer>
 
       <div className='text-center p-3' style={{ backgroundColor: '#1F4959' }}>
-        © {new Date().getFullYear()} Your Renovation Company Name
-        <a className='text-white' href='https://yourwebsite.com/'>
-          yourwebsite.com
+        © {new Date().getFullYear()} RenDes
+        <a className='text-white' href=''>
+     
         </a>
       </div>
     </MDBFooter>

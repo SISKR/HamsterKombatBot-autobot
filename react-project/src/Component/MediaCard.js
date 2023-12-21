@@ -23,7 +23,7 @@ export default function MediaCard({ title, image, description }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button size="small"></Button>
       </CardActions>
     </Card>
   );
