@@ -19,9 +19,10 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedDialogs() {
+const CustomizedDialogs = () => {
   const [open, setOpen] = useState(false);
   const [showLoginPage, setShowLoginPage] = useState(false);
+  const [githubUser, setGitHubUser] = useState(null);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -40,6 +41,24 @@ export default function CustomizedDialogs() {
     setShowLoginPage(false);
   };
 
+  const handleGitHubLogin = () => {
+    // Open GitHub authentication window
+    const githubAuthUrl =
+      'https://github.com/login/oauth/authorize' +
+      '?client_id=9ba714f99c64f4fbe8a4' +
+      '&redirect_uri=http://localhost:3000' +
+      '&scope=user';
+
+    window.location.href = githubAuthUrl;
+  };
+
+  // Callback function to handle GitHub login
+  const handleGitHubLoginCallback = (user) => {
+    console.log('GitHub user data:', user);
+    setGitHubUser(user);
+    handleClose();
+  };
+  
   return (
     <React.Fragment>
       <Button variant="contained" onClick={handleClickOpen}>
@@ -78,6 +97,14 @@ export default function CustomizedDialogs() {
                   >
                     Switch to Signup
                   </Button>
+                  <br />
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    onClick={handleGitHubLogin}
+                  >
+                    Login with GitHub
+                  </Button>
                 </center>
               </>
             ) : (
@@ -91,12 +118,29 @@ export default function CustomizedDialogs() {
                   >
                     Login
                   </Button>
+                  <br />
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    onClick={handleGitHubLogin}
+                  >
+                    Login with GitHub
+                  </Button>
                 </center>
               </>
             )}
           </Typography>
         </DialogContent>
       </BootstrapDialog>
+
+      {/* Display user's name in the navbar if logged in with GitHub */}
+      {githubUser && (
+        <div>
+          <h5 style={{ color: 'white' }}>Welcome, {githubUser.username}!</h5>
+        </div>
+      )}
     </React.Fragment>
   );
-}
+};
+
+export default CustomizedDialogs;

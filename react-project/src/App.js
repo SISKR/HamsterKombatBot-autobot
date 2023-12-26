@@ -7,6 +7,7 @@ import Homepage from './Component/Homepage';
 import Footer from './Component/Footer';
 import Testimonals from './Component/Testimonials';
 import Slider from './Component/Slider';
+import Gallery from './Component/gallery';
 import Navbar from './Component/Navbar';
 import Cards from './Component/Cards';
 import FixedContainer from './Component/Container';
@@ -22,16 +23,7 @@ export default function App() {
           <Route path="/testimonials" element={<Testimonals />} />
           {/* Add more routes as needed */}
         </Routes>
-        <Navbar />
-        <Slider/>
-        <br></br>
-        <Cards /> 
-        <br></br>
-        <br></br>
-        <FixedContainer></FixedContainer>
-        <Testimonials />
-        <br></br>
-        <Footer />
+      <Homepage />
       </div>
     </Router>
   );

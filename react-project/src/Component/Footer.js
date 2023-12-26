@@ -24,22 +24,22 @@ export default function App() {
 
             <ul className='list-unstyled mb-0'>
               <li>
-                <a href='#!' className='text-white'>
-                  Portfolio
+                <a id='Designs' className='text-white'>
+                  Designs
                 </a>
               </li>
               <li>
-                <a href='#!' className='text-white'>
-                  Services
-                </a>
+              <a href=""id='Gallery' className='text-white'>
+                Gallery
+              </a>
               </li>
               <li>
-                <a href='#!' className='text-white'>
+                <a id='Testimonials' className='text-white'>
                   Testimonials
                 </a>
               </li>
               <li>
-                <a href='#!' className='text-white'>
+                <a id='Contact' className='text-white'>
                   Contact Us
                 </a>
               </li>
