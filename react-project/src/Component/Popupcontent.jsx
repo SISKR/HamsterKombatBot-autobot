@@ -19,10 +19,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-const CustomizedDialogs = () => {
+export default function CustomizedDialogs() {
   const [open, setOpen] = useState(false);
   const [showLoginPage, setShowLoginPage] = useState(false);
-  const [githubUser, setGitHubUser] = useState(null);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -41,24 +40,26 @@ const CustomizedDialogs = () => {
     setShowLoginPage(false);
   };
 
+  const handleGoogleLogin = () => {
+    // Open Google authentication window
+    const googleAuthUrl = 'https://accounts.google.com/o/oauth2/auth' +
+      '?client_id=931107241311-471l9no4t5ig9k49rkr42hdbv237lq4k.apps.googleusercontent.com' +
+      '&redirect_uri=YOUR_REDIRECT_URI' +
+      '&response_type=token';
+
+    window.location.href = googleAuthUrl;
+  };
+
   const handleGitHubLogin = () => {
     // Open GitHub authentication window
-    const githubAuthUrl =
-      'https://github.com/login/oauth/authorize' +
+    const githubAuthUrl = 'https://github.com/login/oauth/authorize' +
       '?client_id=9ba714f99c64f4fbe8a4' +
-      '&redirect_uri=http://localhost:3000' +
+      '&redirect_uri=https://rendes.azurewebsites.net/' +
       '&scope=user';
 
     window.location.href = githubAuthUrl;
   };
 
-  // Callback function to handle GitHub login
-  const handleGitHubLoginCallback = (user) => {
-    console.log('GitHub user data:', user);
-    setGitHubUser(user);
-    handleClose();
-  };
-  
   return (
     <React.Fragment>
       <Button variant="contained" onClick={handleClickOpen}>
@@ -101,9 +102,9 @@ const CustomizedDialogs = () => {
                   <Button
                     variant="contained"
                     color="warning"
-                    onClick={handleGitHubLogin}
+                    onClick={handleGoogleLogin}
                   >
-                    Login with GitHub
+                    Login with Google
                   </Button>
                 </center>
               </>
@@ -120,8 +121,15 @@ const CustomizedDialogs = () => {
                   </Button>
                   <br />
                   <Button
+                  variant="contained"
+                  color="warning"
+                  onClick={handleGoogleLogin}
+                >
+                  Login with Google
+                </Button>
+                  <Button
                     variant="contained"
-                    color="warning"
+                    color="info"
                     onClick={handleGitHubLogin}
                   >
                     Login with GitHub
@@ -132,15 +140,6 @@ const CustomizedDialogs = () => {
           </Typography>
         </DialogContent>
       </BootstrapDialog>
-
-      {/* Display user's name in the navbar if logged in with GitHub */}
-      {githubUser && (
-        <div>
-          <h5 style={{ color: 'white' }}>Welcome, {githubUser.username}!</h5>
-        </div>
-      )}
     </React.Fragment>
   );
-};
-
-export default CustomizedDialogs;
+}
