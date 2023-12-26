@@ -85,10 +85,10 @@
           </ListItem>
           <ListDivider />
           <ListItem role="none">
-            <ListItemButton role="menuitem" component="a" href="#horizontal-list" style={{ color: 'white' }}>
-              Contact
-            </ListItemButton>
-          </ListItem>
+          <ListItemButton role="menuitem" component="a" href="#design" style={{ color: 'white' }}>
+            Designs
+          </ListItemButton>
+        </ListItem>
           <ListDivider />
           <ListItem role="none">
             <ListItemButton
@@ -126,17 +126,10 @@
           </ListItem>
           <ListDivider />
           <ListItem role="none">
-            <ListItemButton role="menuitem" component="a" href="#design" style={{ color: 'white' }}>
-              Designs
-            </ListItemButton>
-          </ListItem>
-          <ListDivider />
-          <ListItem role="none">
-            <ListItemButton role="menuitem" component="a" href="#interior" style={{ color: 'white' }}>
-              Interiors Designs
-            </ListItemButton>
-          </ListItem>
-          <ListDivider />
+          <ListItemButton role="menuitem" component="a" href="#horizontal-list" style={{ color: 'white' }}>
+            Contact
+          </ListItemButton>
+        </ListItem>
           <ListItem role="none">
             <ListItemButton role="menuitem" component="a" href="#house" style={{ color: 'white' }}>
               About

@@ -14,7 +14,7 @@ export default function FixedContainer() {
     </center> 
     <br></br>
       <Container fixed>
-        <Box sx={{  marginLeft:'-200px',width: '1535px', bgcolor: '',top:'-20px', height: '70vh', position: 'relative',boxradius:'2px' }}>
+        <Box sx={{  marginLeft:'-200px',width: '1535px', bgcolor: '',top:'-5px', height: '70vh', position: 'relative',boxradius:'2px' }}>
           <Content />
         </Box>
       </Container>
